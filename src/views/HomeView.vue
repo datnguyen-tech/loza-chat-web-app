@@ -1,8 +1,10 @@
 <template>
+  <img src="/favicon.png">
   <p>Home view</p>
   <p>{{ testStore.name }}</p>
   <p>{{ baseStore.count }}</p>
-  <div class="text-5xl" @click="handleClick">Click</div>
+
+  <el-button class="text-5xl" @click="handleClick">I am ElButton</el-button>
 </template>
 
 <script setup lang="ts">
