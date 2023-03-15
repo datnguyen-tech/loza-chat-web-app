@@ -1,5 +1,5 @@
-import type { ModuleInterface } from '@/interfaces/module'
-import AuthModule from "@/modules/Auth";
+import type { ModuleInterface } from '@/interface/module'
+import AuthModule from '@/modules/Auth'
 
 const listModule: Record<string, ModuleInterface> = {
   AuthModule
