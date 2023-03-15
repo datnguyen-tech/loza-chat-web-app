@@ -1,8 +1,8 @@
 import type { ModuleInterface } from '@/interfaces/module'
-import testModule from '@/modules/Test'
+import AuthModule from "@/modules/Auth";
 
 const listModule: Record<string, ModuleInterface> = {
-  testModule
+  AuthModule
 }
 
 export default listModule

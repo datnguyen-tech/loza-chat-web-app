@@ -7,7 +7,7 @@ import listModule from '@/modules'
 import App from './App.vue'
 import router from './router'
 
-import './assets/style/main.css'
+import './assets/style/index.scss'
 
 import 'virtual:svg-icons-register'
 
