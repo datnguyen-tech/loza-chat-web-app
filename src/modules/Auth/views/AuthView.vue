@@ -3,8 +3,8 @@
     <div class="left w-1/4 bg-cover bg-center"></div>
     <div class="right flex flex-1 items-center justify-center">
       <div class="form w-full max-w-lg bg-white p-10 shadow-lg">
-        <h2 class="mb-4 text-center text-3xl font-medium">{{ type === 'LOGIN' ? 'Đăng nhập' : 'Đăng ký' }}</h2>
-        <el-form>
+        <h2 class="mb-4 text-center text-3xl font-semibold">{{ type === 'LOGIN' ? 'Đăng nhập' : 'Đăng ký' }}</h2>
+        <el-form class="base-form" label-position="top">
           <el-form-item v-if="type === 'SIGNUP'" label="Họ Tên">
             <el-input v-model="form.fullName" placeholder="Nhập hộ tên" />
           </el-form-item>
@@ -38,8 +38,6 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
-
   const form = ref<Record<string, any>>({
     fullName: '',
     email: '',
@@ -47,6 +45,10 @@
     rePassword: ''
   })
   const type = ref<'LOGIN' | 'SIGNUP'>('LOGIN')
+
+  function handleSubmitAuth(): void {
+    //
+  }
 </script>
 
 <style scoped lang="scss">

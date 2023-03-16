@@ -1,8 +1,7 @@
 import axios from 'axios'
 import Cookies from 'js-cookie'
-import type { Message } from 'element-plus'
+import { ElMessage } from 'element-plus'
 
-const Notify = {} as Message
 const API_URL: string | undefined = import.meta.env.VUE_APP_BASE_API
 
 const request = axios.create({
@@ -32,10 +31,10 @@ request.interceptors.response.use(
       location.href = '/login'
     }
     if (status === 400) {
-      Notify.error({ message: data.message, duration: 5000 })
+      ElMessage.error({ message: data.message, duration: 5000 })
     }
     if (!error.response || error.response.status >= 500) {
-      Notify.error({ message: 'Internal Server', duration: 5000 })
+      ElMessage.error({ message: 'Internal Server', duration: 5000 })
       return Promise.reject(error)
     }
     return Promise.reject(error)

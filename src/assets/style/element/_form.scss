@@ -1,0 +1,19 @@
+.el-form.el-form--default.el-form--label-top.base-form {
+    .el-form-item {
+        &__label {
+            color: var(--color-label-form);
+            @apply leading-normal font-normal text-[14px] pb-[5px] mb-0;
+        }
+        &__content {
+            .el-input {
+                &__wrapper {
+                    .el-input__inner {
+                        height: 40px;
+                        line-height: 1;
+                        color: var(--color-text-form);
+                    }
+                }
+            }
+        }
+    }
+}
