@@ -17,12 +17,16 @@
           <el-form-item v-if="type === 'SIGNUP'" label="Nhập lại mật khẩu">
             <el-input type="password" v-model="form.rePassword" placeholder="Nhập mật khẩu" />
           </el-form-item>
-          <div
+          <!-- <div
             class="btn cursor-pointer border-0 border-none bg-blue-500 text-base font-medium text-white hover:bg-blue-700"
             @click="handleSubmitAuth"
           >
             {{ type === 'LOGIN' ? 'Đăng nhập' : 'Đăng ký' }}
-          </div>
+          </div> -->
+
+          <base-button class="w-full" @click="handleSubmitAuth">
+            {{ type === 'LOGIN' ? 'Đăng nhập' : 'Đăng ký' }}
+          </base-button>
           <p v-if="type === 'LOGIN'" class="text-md mt-2 text-center text-gray-400">
             Chưa có tài khoản?
             <span class="cursor-pointer text-blue-400" @click="type = 'SIGNUP'"> Tạo tài khoản</span>
@@ -46,8 +50,8 @@
   })
   const type = ref<'LOGIN' | 'SIGNUP'>('LOGIN')
 
-  function handleSubmitAuth(): void {
-    //
+  const handleSubmitAuth = () => {
+    console.log('aaa')
   }
 </script>
 
