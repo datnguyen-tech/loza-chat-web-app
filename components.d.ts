@@ -14,7 +14,12 @@ declare module '@vue/runtime-core' {
     ElButton: typeof import('element-plus/es')['ElButton']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
+    ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
+    IAntDesignAlipayCircleFilled: typeof import('~icons/ant-design/alipay-circle-filled')['default']
+    IEpAddLocation: typeof import('~icons/ep/add-location')['default']
+    IEpChatDotSquare: typeof import('~icons/ep/chat-dot-square')['default']
+    IEpLoading: typeof import('~icons/ep/loading')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
