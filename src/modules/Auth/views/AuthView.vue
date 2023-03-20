@@ -12,10 +12,10 @@
             <el-input v-model="form.email" placeholder="Nhập email" />
           </el-form-item>
           <el-form-item label="Mật khẩu">
-            <el-input type="password" v-model="form.password" placeholder="Nhập mật khẩu" />
+            <el-input v-model="form.password" type="password" placeholder="Nhập mật khẩu" />
           </el-form-item>
           <el-form-item v-if="type === 'SIGNUP'" label="Nhập lại mật khẩu">
-            <el-input type="password" v-model="form.rePassword" placeholder="Nhập mật khẩu" />
+            <el-input v-model="form.rePassword" type="password" placeholder="Nhập mật khẩu" />
           </el-form-item>
           <!-- <div
             class="btn cursor-pointer border-0 border-none bg-blue-500 text-base font-medium text-white hover:bg-blue-700"
