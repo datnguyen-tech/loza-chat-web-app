@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@iconify-json/ant-design": "^1.1.5",
+    "@iconify-json/bx": "^1.1.6",
     "@iconify-json/ep": "^1.1.10",
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/node": "^18.14.2",

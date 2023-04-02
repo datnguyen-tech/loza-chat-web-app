@@ -3,17 +3,7 @@ import RelationRepository from './relationRepository'
 import UtilRepository from './utilRepository'
 import ChatRepository from './ChatRepository'
 
-type RepositoryName = 'auth' | 'relations' | 'util' | 'chat'
-
-export default function getRepository(name: RepositoryName): any {
-  switch (name) {
-    case 'auth':
-      return new AuthRepository()
-    case 'relations':
-      return new RelationRepository()
-    case 'util':
-      return new UtilRepository()
-    case 'chat':
-      return new ChatRepository()
-  }
-}
+export const apiAuth: AuthRepository = new AuthRepository()
+export const apiRelation: RelationRepository = new RelationRepository()
+export const apiUtil: UtilRepository = new UtilRepository()
+export const apiChat: ChatRepository = new ChatRepository()

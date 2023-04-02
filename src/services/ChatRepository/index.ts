@@ -1,4 +1,4 @@
-import { IApiResponse, IMessage, IRequestBodyConversation, IRequestBodyMessage } from '@/interface'
+import type { IApiResponse, IMessage, IRequestBodyConversation, IRequestBodyMessage } from '@/interface'
 import request from '@/plugins/request'
 
 export default class RelationRepository {

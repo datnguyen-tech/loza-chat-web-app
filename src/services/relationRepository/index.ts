@@ -1,4 +1,4 @@
-import { IApiResponse } from '@/interface'
+import type { IApiResponse } from '@/interface'
 import request from '@/plugins/request'
 
 export default class RelationRepository {

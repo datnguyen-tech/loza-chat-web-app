@@ -7,8 +7,6 @@
 </template>
 
 <script setup>
-  import { computed } from 'vue'
-
   const props = defineProps({
     name: {
       type: String,
@@ -30,7 +28,7 @@
   const symbolId = computed(() => `#icon-${props.name}`)
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
   .svg-icon {
     display: inline-block;
     width: 16px;

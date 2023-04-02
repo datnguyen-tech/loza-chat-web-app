@@ -29,7 +29,7 @@ export default defineConfig({
           prefix: 'Icon'
         })
       ],
-      imports: ['vue'],
+      imports: ['vue', 'vue-router'],
       eslintrc: {
         enabled: true
       },
@@ -38,7 +38,7 @@ export default defineConfig({
     Components({
       resolvers: [
         IconsResolver({
-          enabledCollections: ['ep']
+          enabledCollections: ['ep', 'bx']
         }),
         ElementPlusResolver()
       ]

@@ -42,6 +42,9 @@
 </template>
 
 <script setup lang="ts">
+  import { apiAuth } from '@/services'
+  const router = useRouter()
+
   const form = ref<Record<string, any>>({
     fullName: '',
     email: '',
@@ -50,8 +53,20 @@
   })
   const type = ref<'LOGIN' | 'SIGNUP'>('LOGIN')
 
-  const handleSubmitAuth = () => {
-    console.log('aaa')
+  const handleSubmitAuth = async () => {
+    try {
+      const data =
+        type.value === 'LOGIN'
+          ? {
+              email: form.value.email,
+              password: form.value.password
+            }
+          : form.value
+      await apiAuth.login(data)
+      router.push({ path: '/' })
+    } catch (error) {
+      console.log(error)
+    }
   }
 </script>
 

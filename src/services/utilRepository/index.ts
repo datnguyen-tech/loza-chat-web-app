@@ -1,4 +1,4 @@
-import { IFile } from '@/interface'
+import type { IFile } from '@/interface'
 import request from '@/plugins/request'
 
 export default class UtilRepository {

@@ -1,14 +1,16 @@
 import type { IUser } from '../../interface/index'
-
 import request from '@/plugins/request'
+import Cookies from 'js-cookie'
 
 export default class AuthRepository {
   url = 'api/v1/user'
 
-  async login(body: Record<string, any>): Promise<Record<string, any>> {
+  async login(body: Record<string, any>): Promise<void> {
     try {
       const result = await request.post(`${this.url}/login`, body)
-      return Promise.resolve(result.data.data)
+      request.defaults.headers.common['Authorization'] = `Bearer ${result.data.data.accessToken}`
+      Cookies.set('access_token', result.data.data.accessToken, { expires: 7 })
+      return Promise.resolve()
     } catch (error) {
       return Promise.reject(error)
     }
