@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-16 flex-col items-center justify-between bg-[#0091ff] pt-4 pb-4 h-screen">
+  <div class="flex w-16 flex-col items-center bg-[#0091ff] pt-4 h-screen">
     <base-popover placement="right">
       <div class="font-medium">
         <p class="px-3 text-lg pb-[6px] border-b border-solid border-border-primary mb-[6px]">
@@ -12,8 +12,17 @@
         <img :src="user.avatar" alt="avatar user" class="w-12 h-12 rounded-full object-cover cursor-pointer" />
       </template>
     </base-popover>
-    <i-ep-add-location />
-    <i-bx-bxs-message />
+    <div class="text-2xl mt-4 text-white w-16 h-16 flex items-center justify-center hover:bg-[#006edc] cursor-pointer">
+      <i-bx-bxs-message />
+    </div>
+    <div class="text-2xl text-white w-16 h-16 flex items-center justify-center hover:bg-[#006edc] cursor-pointer">
+      <i-bx-bxs-contact />
+    </div>
+    <div
+      class="text-2xl mt-auto text-white w-16 h-16 flex items-center justify-center hover:bg-[#006edc] cursor-pointer"
+    >
+      <i-ep-setting />
+    </div>
   </div>
 </template>
 
