@@ -29,7 +29,7 @@ export default defineConfig({
           prefix: 'Icon'
         })
       ],
-      imports: ['vue', 'vue-router'],
+      imports: ['vue', 'vue-router', 'pinia'],
       eslintrc: {
         enabled: true
       },
@@ -38,7 +38,7 @@ export default defineConfig({
     Components({
       resolvers: [
         IconsResolver({
-          enabledCollections: ['ep', 'bx']
+          // enabledCollections: ['ep', 'bx', 'ant']
         }),
         ElementPlusResolver()
       ]
