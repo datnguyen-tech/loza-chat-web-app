@@ -10,8 +10,8 @@ export interface IUser {
   [x: string]: any
 }
 
-export interface IApiResponse {
-  content?: Array<Record<string, any>>
+export interface IApiResponse<T> {
+  content?: T
   total?: number
   data?: Record<string, any>
   page?: number

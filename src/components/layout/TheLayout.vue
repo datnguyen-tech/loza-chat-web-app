@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen w-full flex items-center justify-center" v-if="isLoading">
+  <div v-if="isLoading" class="h-screen w-full flex items-center justify-center">
     <LayoutLoading />
   </div>
   <div v-else class="w-full flex">
@@ -12,10 +12,12 @@
   import { useAuthStore } from '@/stores/auth'
   const authStore = useAuthStore()
 
-  const isLoading = ref(false)
+  const isLoading = ref(true)
 
   onMounted(() => {
-    authStore.getInfoUser()
+    authStore.getInfoUser().then(() => {
+      isLoading.value = false
+    })
   })
 </script>
 

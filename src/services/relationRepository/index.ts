@@ -4,7 +4,7 @@ import request from '@/plugins/request'
 export default class RelationRepository {
   url = 'api/v1/relation'
 
-  async getListFriend(id: string, params?: Record<string, any>): Promise<IApiResponse> {
+  async getListFriend(id: string, params?: Record<string, any>): Promise<IApiResponse<any>> {
     try {
       const result = await request.get(`${this.url}/friend/${id}`, { params })
       return Promise.resolve(result.data.data)
@@ -13,7 +13,7 @@ export default class RelationRepository {
     }
   }
 
-  async getListSuggestFriend(): Promise<IApiResponse> {
+  async getListSuggestFriend(): Promise<IApiResponse<any>> {
     try {
       const result = await request.get(`${this.url}/suggest`)
       return Promise.resolve(result.data.data)
@@ -21,7 +21,7 @@ export default class RelationRepository {
       return Promise.reject(error)
     }
   }
-  async getListRequestFriend(): Promise<IApiResponse> {
+  async getListRequestFriend(): Promise<IApiResponse<any>> {
     try {
       const result = await request.get(`${this.url}/request`)
       return Promise.resolve(result.data.data)
@@ -30,7 +30,7 @@ export default class RelationRepository {
     }
   }
 
-  async requestFriend(body: Record<string, any>): Promise<IApiResponse> {
+  async requestFriend(body: Record<string, any>): Promise<IApiResponse<any>> {
     try {
       const result = await request.post(`${this.url}`, body)
       return Promise.resolve(result.data.data)
@@ -38,7 +38,7 @@ export default class RelationRepository {
       return Promise.reject(error)
     }
   }
-  async rejectFriend(body: Record<string, any>): Promise<IApiResponse> {
+  async rejectFriend(body: Record<string, any>): Promise<IApiResponse<any>> {
     try {
       const result = await request.post(`${this.url}/reject`, body)
       return Promise.resolve(result.data.data)

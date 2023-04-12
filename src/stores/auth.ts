@@ -22,6 +22,7 @@ export const useAuthStore = defineStore('auth', () => {
   const getInfoUser = async () => {
     const info = await apiAuth.getMyInfo()
     user.value = { ...info }
+    return Promise.resolve()
   }
   const logout = () => {
     Cookies.remove('access_token')

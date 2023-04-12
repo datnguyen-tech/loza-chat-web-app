@@ -1,10 +1,10 @@
-import type { IApiResponse, IMessage, IRequestBodyConversation, IRequestBodyMessage } from '@/interface'
+import type { IApiResponse, IConversation, IMessage, IRequestBodyConversation, IRequestBodyMessage } from '@/interface'
 import request from '@/plugins/request'
 
 export default class RelationRepository {
   url = 'api/v1/chat'
 
-  async createConversation(body: IRequestBodyConversation): Promise<IApiResponse> {
+  async createConversation(body: IRequestBodyConversation): Promise<IApiResponse<Array<Record<string, any>>>> {
     try {
       const result = await request.post(`${this.url}/create`, body)
       return Promise.resolve(result.data.data)
@@ -13,7 +13,7 @@ export default class RelationRepository {
     }
   }
 
-  async getListConversation(): Promise<IApiResponse> {
+  async getListConversation(): Promise<IApiResponse<IConversation[]>> {
     try {
       const result = await request.get(`${this.url}/conversation`)
       return Promise.resolve(result.data.data)
@@ -22,7 +22,7 @@ export default class RelationRepository {
     }
   }
 
-  async getListMessage(params?: Record<string, any>): Promise<IApiResponse> {
+  async getListMessage(params?: Record<string, any>): Promise<IApiResponse<Array<Record<string, any>>>> {
     try {
       const result = await request.get(`${this.url}/conversation/message`, { params })
       result.data.data.content = (result.data.data.content as IMessage[]).reverse()
@@ -41,7 +41,10 @@ export default class RelationRepository {
     }
   }
 
-  async getListFile(conversationId: string, params?: Record<string, any>): Promise<IApiResponse> {
+  async getListFile(
+    conversationId: string,
+    params?: Record<string, any>
+  ): Promise<IApiResponse<Array<Record<string, any>>>> {
     try {
       const result = await request.get(`${this.url}/conversation/${conversationId}/file`, { params })
       return Promise.resolve(result.data.data)

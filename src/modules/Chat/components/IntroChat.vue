@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-1 flex-col justify-center">
+  <div class="flex flex-1 flex-col justify-center intro-chat">
     <div class="m-[0_auto_50px] w-[415px] text-center">
-      <p class="text-[22px]">Chào mừng đến với <b>Loza PC!</b></p>
+      <p class="text-[22px]">Chào mừng đến với <span class="font-bold">Loza PC!</span></p>
       <p class="mt-[20px] text-sm">
         Khám phá những tiện ích hỗ trợ làm việc và trò chuyện cùng người thân, bạn bè được tối ưu hoá cho máy tính của
         bạn.
@@ -55,4 +55,28 @@
   })
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+  .intro-chat {
+    :deep(.slider) {
+      .el-carousel__arrow {
+        background: transparent;
+        i {
+          font-size: 25px;
+          color: #0a0b0d;
+        }
+        &:hover {
+          i {
+            color: #0068ff;
+          }
+        }
+      }
+      .el-carousel__indicators {
+        .el-carousel__indicator.is-active {
+          .el-carousel__button {
+            background-color: #0068ff;
+          }
+        }
+      }
+    }
+  }
+</style>
