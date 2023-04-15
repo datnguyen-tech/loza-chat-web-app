@@ -1,6 +1,6 @@
 <template>
-  <div class="nav h-screen w-82 pt-4 pb-4">
-    <div class="search flex items-center justify-between pr-4 pl-4">
+  <div class="nav h-screen w-82">
+    <div class="search flex items-center justify-between pr-4 pl-4 h-16">
       <el-input v-model="search" :prefix-icon="Search" placeholder="Tìm kiếm" />
       <div class="icon ml-2">
         <i-ant-design-user-add-outlined class="text-lg text-[#565050]" />
@@ -12,6 +12,7 @@
       <!-- <base-icon icon="add-user" class="" size="20" @click="handleOpen('popup-search-fr')" />
       <base-icon icon="add-group" class="" size="20" @click="handleOpen('popup-create-group')" /> -->
     </div>
+    <slot />
   </div>
 </template>
 

@@ -35,7 +35,7 @@
     height: 16px;
     color: inherit;
     vertical-align: middle;
-    fill: none;
-    stroke: currentColor;
+    fill: currentColor;
+    // stroke: currentColor;
   }
 </style>

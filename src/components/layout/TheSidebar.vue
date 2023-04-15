@@ -12,14 +12,30 @@
         <img :src="user.avatar" alt="avatar user" class="w-12 h-12 rounded-full object-cover cursor-pointer" />
       </template>
     </base-popover>
-    <div class="text-2xl mt-4 text-white w-16 h-16 flex items-center justify-center hover:bg-[#006edc] cursor-pointer">
-      <i-bx-bxs-message />
-    </div>
-    <div class="text-2xl text-white w-16 h-16 flex items-center justify-center hover:bg-[#006edc] cursor-pointer">
-      <i-bx-bxs-contact />
-    </div>
+
+    <router-link v-slot="{ navigate, isActive }" :to="{ name: 'ChatPage' }" custom>
+      <div
+        role="link"
+        class="text-2xl mt-4 text-white w-16 h-16 flex items-center justify-center hover:bg-[#0000001a] cursor-pointer"
+        :class="{ 'active-link': isActive }"
+        @click="navigate"
+      >
+        <i-bx-bxs-message />
+      </div>
+    </router-link>
+    <router-link v-slot="{ navigate, isActive }" :to="{ name: 'ContactPage' }" custom>
+      <div
+        role="link"
+        class="text-2xl text-white w-16 h-16 flex items-center justify-center hover:bg-[#0000001a] cursor-pointer"
+        :class="{ 'active-link': isActive }"
+        @click="navigate"
+      >
+        <i-bx-bxs-contact />
+      </div>
+    </router-link>
+
     <div
-      class="text-2xl mt-auto text-white w-16 h-16 flex items-center justify-center hover:bg-[#006edc] cursor-pointer"
+      class="text-2xl mt-auto text-white w-16 h-16 flex items-center justify-center hover:bg-[#0000001a] cursor-pointer"
     >
       <i-ep-setting />
     </div>
@@ -35,4 +51,8 @@
   })
 </script>
 
-<style scoped></style>
+<style scoped>
+  .active-link {
+    background-color: #006edc;
+  }
+</style>

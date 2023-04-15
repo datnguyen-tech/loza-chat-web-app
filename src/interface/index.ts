@@ -11,7 +11,7 @@ export interface IUser {
 }
 
 export interface IApiResponse<T> {
-  content?: T
+  content: T
   total?: number
   data?: Record<string, any>
   page?: number

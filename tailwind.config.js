@@ -11,15 +11,11 @@ module.exports = {
         'menu-hover': '#0000001a',
         'btn-active': '#0068ff',
         'main-border': '#dbdbdb',
-        description: '#72808e',
         hyperlink: '#0068ff',
         active: '#0068ff',
-        'btn-sub': '#e5e7eb',
-        'btn-disabled': '#abcdff',
-        label: '#001a33',
-        'bg-sub': '#e5e7eb',
-        'name-chat': '#394e60',
-        error: '#db342e'
+        error: '#db342e',
+        'background-hover': '#f3f5f6',
+        'background-selected': '#e5efff'
       },
       spacing: {
         18: '4.5rem',

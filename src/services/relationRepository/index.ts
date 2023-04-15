@@ -1,10 +1,10 @@
-import type { IApiResponse } from '@/interface'
+import type { IApiResponse, IUser } from '@/interface'
 import request from '@/plugins/request'
 
 export default class RelationRepository {
   url = 'api/v1/relation'
 
-  async getListFriend(id: string, params?: Record<string, any>): Promise<IApiResponse<any>> {
+  async getListFriend(id: string, params?: Record<string, any>): Promise<IApiResponse<IUser[]>> {
     try {
       const result = await request.get(`${this.url}/friend/${id}`, { params })
       return Promise.resolve(result.data.data)
