@@ -1,12 +1,12 @@
 <template>
   <div
-    @click="emit('click')"
     class="button"
     :class="[
       `button--${props.size}`,
       `button--${props.type}`,
       { 'button--loading': props.loading, 'button--disabled': props.disabled }
     ]"
+    @click="emit('click')"
   >
     <el-icon v-if="props.loading" class="is-loading">
       <i-ep-loading />

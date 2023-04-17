@@ -23,8 +23,6 @@ declare module '@vue/runtime-core' {
     IAntDesignUsergroupAddOutlined: typeof import('~icons/ant-design/usergroup-add-outlined')['default']
     IBxBxsContact: typeof import('~icons/bx/bxs-contact')['default']
     IBxBxsMessage: typeof import('~icons/bx/bxs-message')['default']
-    IBxUserPlus: typeof import('~icons/bx/user-plus')['default']
-    IEpAddLocation: typeof import('~icons/ep/add-location')['default']
     IEpLoading: typeof import('~icons/ep/loading')['default']
     IEpSetting: typeof import('~icons/ep/setting')['default']
     LayoutLoading: typeof import('./src/components/base/loading/LayoutLoading.vue')['default']
@@ -33,5 +31,6 @@ declare module '@vue/runtime-core' {
     TheLayout: typeof import('./src/components/layout/TheLayout.vue')['default']
     TheNav: typeof import('./src/components/layout/TheNav.vue')['default']
     TheSidebar: typeof import('./src/components/layout/TheSidebar.vue')['default']
+    ThumbConversation: typeof import('./src/components/base/thumb/ThumbConversation.vue')['default']
   }
 }

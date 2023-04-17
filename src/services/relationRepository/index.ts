@@ -21,7 +21,7 @@ export default class RelationRepository {
       return Promise.reject(error)
     }
   }
-  async getListRequestFriend(): Promise<IApiResponse<any>> {
+  async getListRequestFriend(): Promise<IApiResponse<IUser[]>> {
     try {
       const result = await request.get(`${this.url}/request`)
       return Promise.resolve(result.data.data)

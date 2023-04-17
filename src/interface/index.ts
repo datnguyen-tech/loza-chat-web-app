@@ -22,6 +22,7 @@ export interface IUserRequest {
   _id: string
   message: string
   fromId: IUser
+  [x: string]: any
 }
 
 export interface IConversation {

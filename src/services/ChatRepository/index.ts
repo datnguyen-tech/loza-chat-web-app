@@ -52,4 +52,13 @@ export default class RelationRepository {
       return Promise.reject(error)
     }
   }
+
+  async getListChatGroup(id: string): Promise<IApiResponse<IConversation[]>> {
+    try {
+      const result = await request.get(`${this.url}/chat-group/${id}`)
+      return Promise.resolve(result.data.data)
+    } catch (error) {
+      return Promise.reject(error)
+    }
+  }
 }
