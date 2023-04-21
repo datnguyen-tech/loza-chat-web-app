@@ -1,8 +1,9 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "src/**/*.d.ts", "*.d.ts"],
   "compilerOptions": {
     "target": "esnext",
+    "ignoreDeprecations": "5.0",
     "module": "esnext",
     "strict": true,
     "jsx": "preserve",
@@ -18,7 +19,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@icon/*": ["./src/assets/svg-icon/*"],
+      "@icon/*": ["./src/assets/svg-icon/*"]
     },
     "types": ["element-plus/global"]
   },
