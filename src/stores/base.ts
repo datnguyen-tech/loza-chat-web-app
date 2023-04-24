@@ -1,12 +1,17 @@
-import { ref, computed } from 'vue'
-import { defineStore } from 'pinia'
+import { filter, union } from 'lodash-es'
 
 export const useBaseStore = defineStore('base', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
+  const popup = ref<string[]>(['popup-detail-user'])
+
+  const setOpenPopup = (isOpen: boolean, popupName: string) => {
+    if (isOpen) {
+      popup.value = union(popup.value, [popupName])
+    } else {
+      popup.value = filter(popup.value, value => {
+        return value !== popupName
+      })
+    }
   }
 
-  return { count, doubleCount, increment }
+  return { popup, setOpenPopup }
 })

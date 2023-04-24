@@ -6,10 +6,12 @@
     <the-sidebar />
     <router-view />
   </div>
+  <popup-detail-user />
 </template>
 
 <script setup lang="ts">
   import { useAuthStore } from '@/stores/auth'
+  import PopupDetailUser from '../popup/PopupDetailUser.vue'
   const authStore = useAuthStore()
 
   const isLoading = ref(true)

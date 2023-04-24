@@ -15,7 +15,8 @@ module.exports = {
         active: '#0068ff',
         error: '#db342e',
         'background-hover': '#f3f5f6',
-        'background-selected': '#e5efff'
+        'background-selected': '#e5efff',
+        danger: '#d91b1b'
       },
       spacing: {
         18: '4.5rem',

@@ -8,6 +8,14 @@
       >
         <img :src="user.avatar" alt="" class="w-12 h-12 rounded-full object-cover" />
         <p class="ml-3 text-base font-medium">{{ user.fullName }}</p>
+        <base-popover placement="bottom">
+          <p class="px-3 py-2 cursor-pointer font-medium hover:bg-gray-200">Thông tin</p>
+          <p class="px-3 py-2 cursor-pointer font-medium hover:bg-gray-200">Chặn người này</p>
+          <p class="px-3 py-2 cursor-pointer font-medium text-danger hover:bg-gray-200">Xóa bạn</p>
+          <template #reference>
+            <base-icon name="more" class="ml-auto p-2 text-[#7589a3] rounded hover:bg-[#dfe2e7]" />
+          </template>
+        </base-popover>
       </div>
     </div>
     <div v-if="tab === 'GROUP'">
@@ -23,6 +31,12 @@
             {{ item.members.length }} thành viên
           </p>
         </div>
+        <base-popover placement="bottom">
+          <p class="px-3 py-2 cursor-pointer font-medium text-danger hover:bg-gray-200">Rời nhóm</p>
+          <template #reference>
+            <base-icon name="more" class="ml-auto p-2 text-[#7589a3] rounded hover:bg-[#dfe2e7]" />
+          </template>
+        </base-popover>
       </div>
     </div>
   </div>
