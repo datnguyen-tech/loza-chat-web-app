@@ -74,7 +74,7 @@
     try {
       const result = await apiRelation.getListRequestFriend()
       listData.value = result.content
-      total.value = result.total!
+      total.value = listData.value.length
     } catch (error) {
       listData.value = []
       total.value = 0

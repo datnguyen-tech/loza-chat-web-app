@@ -47,7 +47,7 @@
       height: 40px;
     }
     &--medium {
-      height: 30px;
+      height: 32px;
     }
     &--small {
       height: 25px;

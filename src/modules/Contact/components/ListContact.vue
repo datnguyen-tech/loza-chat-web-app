@@ -9,7 +9,7 @@
         <img :src="user.avatar" alt="" class="w-12 h-12 rounded-full object-cover" />
         <p class="ml-3 text-base font-medium">{{ user.fullName }}</p>
         <base-popover placement="bottom">
-          <p class="px-3 py-2 cursor-pointer font-medium hover:bg-gray-200">Thông tin</p>
+          <p class="px-3 py-2 cursor-pointer font-medium hover:bg-gray-200" @click="showInfo(user)">Thông tin</p>
           <p class="px-3 py-2 cursor-pointer font-medium hover:bg-gray-200">Chặn người này</p>
           <p class="px-3 py-2 cursor-pointer font-medium text-danger hover:bg-gray-200">Xóa bạn</p>
           <template #reference>
@@ -28,7 +28,7 @@
         <div class="ml-3">
           <p class="text-base font-medium">{{ item.conversationName }}</p>
           <p class="text-[13px] mt-1 text-[#7589a3] hover:underline hover:decoration-hyperlink hover:text-hyperlink">
-            {{ item.members.length }} thành viên
+            {{ item.members?.length }} thành viên
           </p>
         </div>
         <base-popover placement="bottom">
@@ -44,6 +44,9 @@
 
 <script setup lang="ts">
   import type { IConversation, IUser, IUserRequest } from '@/interface'
+  import { baseStore } from '@/stores'
+
+  const { setInfoUserToView } = baseStore
 
   interface IProps {
     data: IUser[] | IConversation[] | IUserRequest[]
@@ -52,6 +55,10 @@
   const props = withDefaults(defineProps<IProps>(), {
     data: () => []
   })
+
+  const showInfo = (user: IUser) => {
+    setInfoUserToView(user._id, 'INFO')
+  }
 </script>
 
 <style scoped lang="scss">

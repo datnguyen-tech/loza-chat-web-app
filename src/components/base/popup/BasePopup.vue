@@ -1,11 +1,11 @@
 <template>
   <el-dialog
     v-model="isOpen"
-    :width="props.width"
-    :append-to-body="props.appendBody"
-    :close-on-press-escape="props.closePressEscape"
-    :close-on-click-modal="props.closeClickModal"
-    :top="props.top"
+    :width="width"
+    :append-to-body="appendBody"
+    :close-on-press-escape="closePressEscape"
+    :close-on-click-modal="closeClickModal"
+    :top="top"
     class="base-popup"
     @open="handleOpen"
     @close="handleClose"
@@ -40,15 +40,25 @@
     closeClickModal?: boolean
     closePressEscape?: boolean
   }
-  const props = withDefaults(defineProps<IPopup>(), {
-    name: '',
-    width: '600px',
-    top: '5vh',
-    isShowFooter: true,
-    appendBody: true,
-    closeClickModal: false,
-    closePressEscape: true
-  })
+  // const props = withDefaults(defineProps<IPopup>(), {
+  //   name: '',
+  //   width: '600px',
+  //   top: '5vh',
+  //   isShowFooter: true,
+  //   appendBody: true,
+  //   closeClickModal: false,
+  //   closePressEscape: true
+  // })
+
+  const {
+    name,
+    width = '600px',
+    top = '5vh',
+    isShowFooter = true,
+    appendBody = true,
+    closeClickModal = false,
+    closePressEscape = true
+  } = defineProps<IPopup>()
 
   const emits = defineEmits<{
     (e: 'close'): void
@@ -60,13 +70,13 @@
     get() {
       return (
         findIndex(baseStore.popup, value => {
-          return value === props.name
+          return value === name
         }) !== -1
       )
     },
     // setter
     set(value: boolean) {
-      baseStore.setOpenPopup(value, props.name)
+      baseStore.setOpenPopup(name, value)
     }
   })
 
@@ -96,6 +106,10 @@
           font-size: 24px;
         }
       }
+    }
+    .el-dialog__body {
+      padding: 0;
+      color: var(--color-text);
     }
   }
 </style>

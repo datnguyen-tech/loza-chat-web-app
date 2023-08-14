@@ -15,7 +15,11 @@ dns.setDefaultResultOrder('verbatim')
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      script: {
+        propsDestructure: true
+      }
+    }),
     createSvgIconsPlugin({
       // Specify the icon folder to be cached
       iconDirs: [path.resolve(process.cwd(), 'src/icons/svg')],
@@ -49,5 +53,12 @@ export default defineConfig({
   ],
   resolve: {
     alias: [{ find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url)) }]
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "@/assets/style/_variable.scss" as *;`
+      }
+    }
   }
 })

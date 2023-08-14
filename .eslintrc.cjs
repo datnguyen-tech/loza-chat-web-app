@@ -21,6 +21,7 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-var': 1,
-    'no-undef': 'off'
+    'no-undef': 'off',
+    "vue/no-setup-props-destructure":"off"
   }
 }

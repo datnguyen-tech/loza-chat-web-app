@@ -1,9 +1,23 @@
+import type { IUser } from '@/interface'
+import { apiAuth } from '@/services'
 import { filter, union } from 'lodash-es'
 
-export const useBaseStore = defineStore('base', () => {
-  const popup = ref<string[]>(['popup-detail-user'])
+type TypePopupUser = 'INFO' | 'REQUEST'
 
-  const setOpenPopup = (isOpen: boolean, popupName: string) => {
+export const useBaseStore = defineStore('base', () => {
+  const popup = ref<string[]>([])
+  const infoUser = ref<IUser>({
+    _id: '',
+    fullName: '',
+    avatar: '',
+    banner: '',
+    email: '',
+    gender: '',
+    birthday: ''
+  })
+  const typePopupInfo = ref<TypePopupUser>('INFO')
+
+  const setOpenPopup = (popupName: string, isOpen = true) => {
     if (isOpen) {
       popup.value = union(popup.value, [popupName])
     } else {
@@ -13,5 +27,11 @@ export const useBaseStore = defineStore('base', () => {
     }
   }
 
-  return { popup, setOpenPopup }
+  const setInfoUserToView = async (_id: string, type: TypePopupUser) => {
+    infoUser.value = await apiAuth.getUserInfo({ _id })
+    typePopupInfo.value = type
+    setOpenPopup('popup-detail-user')
+  }
+
+  return { popup, setOpenPopup, infoUser, setInfoUserToView, typePopupInfo }
 })

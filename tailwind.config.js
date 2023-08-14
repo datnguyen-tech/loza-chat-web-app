@@ -16,7 +16,8 @@ module.exports = {
         error: '#db342e',
         'background-hover': '#f3f5f6',
         'background-selected': '#e5efff',
-        danger: '#d91b1b'
+        danger: '#d91b1b',
+        secondary:'#7589a3'
       },
       spacing: {
         18: '4.5rem',
