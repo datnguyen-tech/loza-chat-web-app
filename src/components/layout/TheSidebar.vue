@@ -5,7 +5,9 @@
         <p class="px-3 text-lg pb-[6px] border-b border-solid border-border-primary mb-[6px]">
           {{ user.fullName }}
         </p>
-        <p class="px-3 py-2 cursor-pointer hover:bg-gray-200">Hồ sơ của bạn</p>
+        <p class="px-3 py-2 cursor-pointer hover:bg-gray-200" @click="setInfoUserToView(user._id, 'INFO')">
+          Hồ sơ của bạn
+        </p>
         <p class="px-3 py-2 cursor-pointer hover:bg-gray-200" @click="authStore.logout">Đăng xuất</p>
       </div>
       <template #reference>
@@ -43,12 +45,10 @@
 </template>
 
 <script setup lang="ts">
-  import { useAuthStore } from '@/stores/auth'
-  const authStore = useAuthStore()
+  import { authStore, baseStore } from '@/stores'
 
-  const user = computed(() => {
-    return authStore.user
-  })
+  const { user } = storeToRefs(authStore)
+  const { setInfoUserToView } = baseStore
 </script>
 
 <style scoped>

@@ -19,6 +19,10 @@ export const useAuthStore = defineStore('auth', () => {
     return !!access
   })
 
+  const setInfoUser = (info: IUser) => {
+    user.value = { ...info }
+    console.log(user.value)
+  }
   const getInfoUser = async () => {
     const info = await apiAuth.getMyInfo()
     user.value = { ...info }
@@ -29,5 +33,5 @@ export const useAuthStore = defineStore('auth', () => {
     location.href = '/login'
   }
 
-  return { user, isLogin, getInfoUser, logout }
+  return { user, isLogin, getInfoUser, logout, setInfoUser }
 })

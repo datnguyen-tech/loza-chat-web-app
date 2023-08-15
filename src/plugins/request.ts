@@ -33,7 +33,7 @@ request.interceptors.response.use(
     if (status === 400) {
       ElMessage.error({ message: data.message, duration: 5000 })
     }
-    if (!error.response || error.response.status >= 500) {
+    if (status >= 500) {
       ElMessage.error({ message: 'Internal Server', duration: 5000 })
       return Promise.reject(error)
     }

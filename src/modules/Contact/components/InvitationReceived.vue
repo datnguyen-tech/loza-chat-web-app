@@ -23,6 +23,7 @@
       v-for="item in listSuggestFriend"
       :key="item._id"
       class="h-[138px] bg-white rounded-md p-4 cursor-pointer shadow-sm"
+      @click="setInfoUserToView(item._id, 'INFO')"
     >
       <div class="flex items-center">
         <img :src="item.avatar" alt="avatar" class="w-12 h-12 rounded-full object-cover" />
@@ -33,7 +34,7 @@
       </div>
       <div class="flex justify-between mt-[17px]">
         <base-button class="flex-1 mr-2" type="neutral">Bỏ qua</base-button>
-        <base-button type="neutral" class="flex-1" @click="viewInfoUser(item)">Kết bạn</base-button>
+        <base-button type="neutral" class="flex-1" @click="setInfoUserToView(item._id, 'REQUEST')">Kết bạn</base-button>
       </div>
     </div>
   </div>
@@ -53,10 +54,6 @@
   })
 
   const { setInfoUserToView } = baseStore
-
-  const viewInfoUser = (user: IUser) => {
-    setInfoUserToView(user._id, 'REQUEST')
-  }
 </script>
 
 <style scoped></style>
